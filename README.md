@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+color palette - 
 
-## Getting Started
+<!-- gemini -->
+Primary colors:
+Dark gray: #1E1E1E
+Light gray: #666666
+White: #FFFFFF
+Secondary colors:
 
-First, run the development server:
+Blue: #007AFF
+Green: #4CAF50
+Orange: #FF9800
+Tertiary colors:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Black: #000000
+Red: #FF0000
+Yellow: #FFFF00
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<!-- claude -->
+Background/Dark gray: #1E1E1E or #212121
+White text: #FFFFFF
+Vibrant blue: #4A4AFF or #5353FF
+Light purple/lavender: #9F9FFF or #A5A5FF
+Green (for positive indicators): #00FF00 or #00E676
+Red (for negative indicators): #FF4D4D or #FF5252
