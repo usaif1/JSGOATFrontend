@@ -24,8 +24,8 @@
   --color-status-warn: #ffcc00;
 
   /* text color */
-  --color-text-primary-dark: "#ffffff";
-  --color-text-primary-light: "#333333";
+  --color-text-primary-dark: #ffffff;
+  --color-text-primary-light: #333333;
 }
 
 @layer base {
