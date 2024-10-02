@@ -2,44 +2,48 @@
 import React, { ReactNode } from "react";
 
 // types
-import {
-  TextColor,
-  TextColors,
-  TextSize,
-  TextSizes,
-  TextWeight,
-  TextWeights,
-} from "./types";
+import { TextSize, TextSizes, TextWeight, TextWeights } from "./types";
 
 type Props = {
+  /**
+   * Defines the size of the text.
+   * Defaults to "base", and can be one of the sizes defined in the `TextSizes` enum.
+   */
   size?: TextSize;
-  color?: TextColor;
-  colorDark?: TextColor;
+
+  /**
+   * Defines the content of the text.
+   * It can be any valid React node (string, element, etc.).
+   */
   children: ReactNode;
+
+  /**
+   * Defines the weight of the text (e.g., "normal", "bold").
+   * Defaults to "normal", and can be one of the weights defined in the `TextWeights` enum.
+   */
   weight?: TextWeight;
 };
 
+/**
+ * Text component for rendering customizable text elements.
+ *
+ * This component supports text size, weight, and dynamic color change based on the current theme.
+ * It uses Tailwind CSS utility classes for styling and supports dark mode using the `dark:` class.
+ *
+ * @param {Props} props - The props object containing component properties.
+ * @returns {JSX.Element} A paragraph element with customizable styles.
+ */
 const Text: React.FC<
   Props &
     React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLParagraphElement>,
       HTMLParagraphElement
     >
-> = ({
-  size = "base",
-  color = "primary-light",
-  colorDark = "primary-dark",
-  weight = "normal",
-  ...props
-}) => {
-  const darkTextClass = `dark:${
-    TextColors[colorDark] || TextColors["primary-dark"]
-  }`;
-
+> = ({ size = "base", weight = "normal", ...props }) => {
   return (
     <p
       {...props}
-      className={`${TextSizes[size]} ${TextColors[color]} ${TextWeights[weight]} ${darkTextClass}`}
+      className={`${TextSizes[size]} ${TextWeights[weight]} text-color-text-primary-light dark:text-color-text-primary-dark`}
     >
       {props.children}
     </p>
