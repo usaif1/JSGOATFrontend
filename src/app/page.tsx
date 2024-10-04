@@ -1,9 +1,5 @@
-import { NavbarPrimary } from "./components";
+"use client";
 
 export default function Home() {
-  return (
-    <div>
-      <NavbarPrimary />
-    </div>
-  );
+  return <div>do nothing here</div>;
 }

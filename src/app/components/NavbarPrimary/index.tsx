@@ -1,13 +1,13 @@
 /**
- * left aligned navbar containing links to different resources
- * sticky left aligned for desktop
- * reduces to drawer in mobile mode with a hamburger menu on top left
+ * A drawer component to handle navigation
+ * is persistent on desktop
+ * is closable on mobile and tablets ( menu button visible )
  */
 
 "use client";
 
 // dependencies
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Drawer from "react-modern-drawer";
 import { IoMenu } from "react-icons/io5";
 
@@ -18,14 +18,51 @@ import Anchor from "./NavbarAnchor";
 import { links } from "./data";
 
 const NavbarPrimary: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
+  // Handle resizing to check if the screen is mobile/tablet
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640); // Define tablet/mobile breakpoint
+      if (window.innerWidth <= 640) {
+        setIsOpen(false);
+      }
+    };
+
+    handleResize(); // Check on initial load
+    window.addEventListener("resize", handleResize); // Add resize event listener
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up listener on unmount
+    };
+  }, []);
+
   return (
-    <>
-      <nav className="hidden sm:block sm:w-60 sm:sticky sm:left-0 sm:top-0 h-screen bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10">
+    <nav>
+      {/* Hamburger menu for mobile/tablet only */}
+      {isMobile && (
+        <div className="w-full bg-color-bg-primary-light dark:bg-color-bg-primary-dark fixed left-0 top-0 z-50 px-4 py-2 border border-white">
+          <button className="text-white" onClick={toggleDrawer}>
+            <IoMenu size={24} />
+          </button>
+        </div>
+      )}
+
+      {/* Persistent drawer for desktop and closable drawer for mobile */}
+      <Drawer
+        enableOverlay={isMobile} // Show overlay on mobile
+        open={isOpen || !isMobile} // Always open on desktop, toggle on mobile
+        onClose={toggleDrawer}
+        direction="left"
+        className={`bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10 ${
+          !isMobile && "h-screen sticky top-0 left-0"
+        }`} // Sticky behavior for desktop
+      >
         <ul className="flex flex-col gap-y-4">
           {links.map((link) => {
             return (
@@ -35,37 +72,8 @@ const NavbarPrimary: React.FC = () => {
             );
           })}
         </ul>
-      </nav>
-
-      <div className="sm:hidden">
-        <button
-          className="text-white fixed left-4 top-4"
-          onClick={toggleDrawer}
-        >
-          <IoMenu size={24} />
-        </button>
-        <Drawer
-          open={isOpen}
-          onClose={toggleDrawer}
-          direction="left"
-          className="bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10"
-        >
-          <ul className="flex flex-col gap-y-4">
-            {links.map((link) => {
-              return (
-                <li key={link.title}>
-                  <Anchor
-                    link={link.link}
-                    title={link.title}
-                    Icon={link.icon}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </Drawer>
-      </div>
-    </>
+      </Drawer>
+    </nav>
   );
 };
 

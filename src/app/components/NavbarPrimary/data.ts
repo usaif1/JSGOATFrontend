@@ -4,27 +4,27 @@ import { IoLogoReact, IoLogoVue } from "react-icons/io5";
 export const links = [
   {
     title: "JavaScript",
-    link: "/",
+    link: "/practice/javascript",
     icon: IoLogoJavascript,
   },
   {
     title: "HTML",
-    link: "/",
+    link: "/practice/html",
     icon: IoLogoHtml5,
   },
   {
     title: "CSS",
-    link: "/",
+    link: "/practice/css",
     icon: IoLogoCss3,
   },
   {
     title: "React",
-    link: "/",
+    link: "/practice/react",
     icon: IoLogoReact,
   },
   {
     title: "Vue",
-    link: "/",
+    link: "/practice/vue",
     icon: IoLogoVue,
   },
 ];
