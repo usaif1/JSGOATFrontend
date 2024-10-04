@@ -19,6 +19,14 @@ const config: Config = {
         // text-colors
         "color-text-primary-dark": "var(--color-text-primary-dark)",
         "color-text-primary-light": "var(--color-text-primary-light)",
+
+        /* highlight colors */
+        "color-highlight-primary": "var(--color-highlight-primary)",
+        "color-highlight-secondary": "var(--color-highlight-secondary)",
+
+        /* accents  */
+        "color-accent-primary": "var(--color-accent-primary)",
+        "color-accent-secondary": "var(--color-accent-secondary)",
       },
     },
   },

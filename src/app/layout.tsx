@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 
 // imports
 import "./globals.css";
+import "./components/NavbarPrimary/navbarprimary.css";
 import { ThemeProvider } from "./components";
 
 /**
