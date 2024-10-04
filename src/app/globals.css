@@ -4,14 +4,14 @@
 
 :root {
   /* background colors */
-  --color-bg-primary-dark: #1e1e1e;
+  --color-bg-primary-dark: #171717;
   --color-bg-primary-light: #f9fbfd;
-  --color-bg-secondary-dark: #212121;
+  --color-bg-secondary-dark: #1e1e1e;
   --color-bg-secondary-light: #ffffff;
 
   /* highlight colors */
   --color-highlight-primary: #4a4aff;
-  --color-highlight-seconday: #5353ff;
+  --color-highlight-secondary: #5353ff;
 
   /* accents  */
   --color-accent-primary: #9f9fff;
@@ -24,8 +24,8 @@
   --color-status-warn: #ffcc00;
 
   /* text color */
-  --color-text-primary-dark: "#ffffff";
-  --color-text-primary-light: "#333333";
+  --color-text-primary-dark: #ffffff;
+  --color-text-primary-light: #333333;
 }
 
 @layer base {
