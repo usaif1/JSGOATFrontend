@@ -1,5 +1,16 @@
-import Link from "next/link";
+/**
+ * Layout of the javascript module
+ * This layout wraps the content of the page within tabs ( passed as props )
+ */
+
+// dependencies
 import React, { ReactNode } from "react";
+
+// components
+import { TabNavigation } from "@/app/components";
+
+// data
+import { tabs } from "./data";
 
 type Props = {
   children: ReactNode;
@@ -8,12 +19,7 @@ type Props = {
 const JavaScriptLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className="px-0 sm:px-10 lg:px-20 2xl:px-40">
-      <ul className="bg-green-900 w-4/12 flex items-center text-white justify-between">
-        <Link href={"/practice/javascript/mcq"}>MCQ</Link>
-        <Link href={"/practice/javascript/conceptual"}>Conceptual</Link>
-        <Link href={"/practice/javascript/coding"}>Coding exercises</Link>
-      </ul>
-      <div className="bg-red-100">{children}</div>
+      <TabNavigation data={tabs}>{children}</TabNavigation>
     </div>
   );
 };

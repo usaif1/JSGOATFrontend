@@ -61,7 +61,7 @@ const NavbarPrimary: React.FC = () => {
         direction="left"
         className={`bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10`}
       >
-        <ul className="flex flex-col gap-y-4">
+        <ul className="flex flex-col gap-y-4 cursor-pointer">
           {links.map((link) => {
             return (
               <li key={link.title}>

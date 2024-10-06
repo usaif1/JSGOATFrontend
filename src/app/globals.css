@@ -26,6 +26,10 @@
   /* text color */
   --color-text-primary-dark: #ffffff;
   --color-text-primary-light: #333333;
+
+  /* border color */
+  --color-border-primary-dark: #aaa;
+  --color-border-primary-light: #353535;
 }
 
 @layer base {

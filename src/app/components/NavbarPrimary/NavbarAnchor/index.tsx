@@ -25,8 +25,12 @@ const Anchor: React.FC<Props> = ({ link, title, Icon }) => {
   return (
     <Link
       href={link}
-      className={`w-full text-color-text-primary-light dark:text-color-text-primary-dark rounded-md py-1.5 px-2 hover:bg-color-highlight-secondary flex items-center gap-x-4
-        ${pathName.includes(link) ? "bg-color-highlight-primary" : ""}
+      className={`w-full text-color-text-primary-light dark:text-color-text-primary-dark rounded-md py-1.5 px-2 hover:bg-color-accent-secondary hover:dark:bg-color-highlight-secondary flex items-center gap-x-4
+        ${
+          pathName.includes(link)
+            ? "bg-color-accent-secondary dark:bg-color-highlight-primary"
+            : ""
+        }
         `}
     >
       <Icon />

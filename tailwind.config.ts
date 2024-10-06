@@ -27,6 +27,10 @@ const config: Config = {
         /* accents  */
         "color-accent-primary": "var(--color-accent-primary)",
         "color-accent-secondary": "var(--color-accent-secondary)",
+
+        /* borders */
+        "color-border-primary-dark": "var(--color-border-primary-dark)",
+        "color-border-primary-light": "var(--color-border-primary-light)",
       },
     },
   },

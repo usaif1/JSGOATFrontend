@@ -1,7 +1,15 @@
+// dependencies
 import React from "react";
 
+// components
+import { Text } from "@/app/components";
+
 const JSMCQ = () => {
-  return <div>JSMCQ</div>;
+  return (
+    <div>
+      <Text>JSMCQ</Text>
+    </div>
+  );
 };
 
 export default JSMCQ;
