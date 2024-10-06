@@ -18,6 +18,7 @@ import Link from "next/link";
 
 // components
 import Text from "../Text";
+import ScrollToTop from "../ScrollToTop";
 
 // data
 import { tabs } from "../../practice/javascript/data";
@@ -34,25 +35,29 @@ type Props = {
 
 const TabNavigation: React.FC<Props> = ({ children }) => {
   return (
-    <Tabs className="cursor-pointer">
-      <TabList>
+    <>
+      <Tabs className="cursor-pointer">
+        <TabList>
+          {tabs.map((tab) => {
+            return (
+              <Tab
+                key={tab.title}
+                selectedClassName="bg-color-bg-primary-light dark:bg-color-bg-primary-dark !border !border-color-border-primary-light dark:!border-color-border-primary-dark rounded-tl-md rounded-tr-md"
+              >
+                <Link href={tab.link}>
+                  <Text>{tab.title}</Text>
+                </Link>
+              </Tab>
+            );
+          })}
+        </TabList>
         {tabs.map((tab) => {
-          return (
-            <Tab
-              key={tab.title}
-              selectedClassName="bg-color-bg-primary-light dark:bg-color-bg-primary-dark !border !border-color-border-primary-light dark:!border-color-border-primary-dark rounded-tl-md rounded-tr-md"
-            >
-              <Link href={tab.link}>
-                <Text>{tab.title}</Text>
-              </Link>
-            </Tab>
-          );
+          return <TabPanel key={tab.title}>{children}</TabPanel>;
         })}
-      </TabList>
-      {tabs.map((tab) => {
-        return <TabPanel key={tab.title}>{children}</TabPanel>;
-      })}
-    </Tabs>
+      </Tabs>
+
+      <ScrollToTop />
+    </>
   );
 };
 
