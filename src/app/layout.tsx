@@ -29,12 +29,14 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <ThemeProvider>
-          {children}
-          <footer className="w-full bg-white px-4 sm:pl-64">
-            i am the footer
-          </footer>
-        </ThemeProvider>
+        <main>
+          <ThemeProvider>
+            {children}
+            <footer className="w-full bg-white px-4 sm:pl-64">
+              i am the footer
+            </footer>
+          </ThemeProvider>
+        </main>
       </body>
     </html>
   );

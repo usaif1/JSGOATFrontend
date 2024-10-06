@@ -59,9 +59,7 @@ const NavbarPrimary: React.FC = () => {
         open={isOpen || !isMobile} // Always open on desktop, toggle on mobile
         onClose={toggleDrawer}
         direction="left"
-        className={`bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10 ${
-          !isMobile && "h-screen sticky top-0 left-0"
-        }`} // Sticky behavior for desktop
+        className={`bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10`}
       >
         <ul className="flex flex-col gap-y-4">
           {links.map((link) => {
