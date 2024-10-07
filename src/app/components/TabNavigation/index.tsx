@@ -7,21 +7,17 @@
  * @param {TabNavigationData} props.data - The link tab to render within each Tab
  * @param {ReactNode} props.children - The content to render within each TabPanel
  * @returns {ReactElement} - The rendered TabNavigation component.
+ *
+ * might need to implement custom tabs
  */
-
-"use client";
 
 // dependencies
 import React, { ReactNode } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Link from "next/link";
 
 // components
-import Text from "../Text";
+// import Text from "../Text";
 import ScrollToTop from "../ScrollToTop";
-
-// data
-import { tabs } from "../../practice/javascript/data";
+import Tab from "./Tab";
 
 type TabNavigationData = {
   link: string;
@@ -30,32 +26,24 @@ type TabNavigationData = {
 
 type Props = {
   children: ReactNode;
-  data: TabNavigationData[];
+  tabs: TabNavigationData[];
+  activeTab?: number;
 };
 
-const TabNavigation: React.FC<Props> = ({ children }) => {
+const TabNavigation: React.FC<Props> = ({ children, tabs }) => {
   return (
     <>
-      <Tabs className="cursor-pointer">
-        <TabList>
+      <nav>
+        <ul
+          className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark"
+        >
           {tabs.map((tab) => {
-            return (
-              <Tab
-                key={tab.title}
-                selectedClassName="bg-color-bg-primary-light dark:bg-color-bg-primary-dark !border !border-color-border-primary-light dark:!border-color-border-primary-dark rounded-tl-md rounded-tr-md"
-              >
-                <Link href={tab.link}>
-                  <Text>{tab.title}</Text>
-                </Link>
-              </Tab>
-            );
+            return <Tab key={tab.title} tabData={tab} />;
           })}
-        </TabList>
-        {tabs.map((tab) => {
-          return <TabPanel key={tab.title}>{children}</TabPanel>;
-        })}
-      </Tabs>
+        </ul>
+      </nav>
 
+      {children}
       <ScrollToTop />
     </>
   );

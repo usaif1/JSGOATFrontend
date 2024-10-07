@@ -6,6 +6,8 @@
  */
 
 // dependencies
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { throttle } from "lodash";

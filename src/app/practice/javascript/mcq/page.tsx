@@ -3,15 +3,27 @@ import React from "react";
 
 // components
 import { Text } from "@/app/components";
+// import CodeEditorComponent from "@/app/components/CodeEditor";
 
-const JSMCQ = () => {
+const JSMCQ = async () => {
+  // const response = await fetch(
+  //   "https://jsgoatbackend.vercel.app/api/questions"
+  // );
+  // const formatted = await response.json();
+
+  // console.log("formatted", formatted);
+
   return (
     <div>
-      {Array(100)
-        .fill(0)
-        .map((el, index) => {
-          return <Text key={index}>JSMCQ{el}</Text>;
-        })}
+      <Text>JSMCQ</Text>
+      {/* <CodeEditorComponent /> */}
+      {/* {formatted.slice(0, 5).map((el) => {
+        return (
+          <Text key={el?._id}>
+            <CodeEditorComponent codeblock={el?.codeBlock} />
+          </Text>
+        );
+      })} */}
     </div>
   );
 };
