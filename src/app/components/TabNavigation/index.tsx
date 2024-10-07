@@ -34,16 +34,13 @@ const TabNavigation: React.FC<Props> = ({ children, tabs }) => {
   return (
     <>
       <nav>
-        <ul
-          className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark"
-        >
+        <ul className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark">
           {tabs.map((tab) => {
             return <Tab key={tab.title} tabData={tab} />;
           })}
         </ul>
       </nav>
-
-      {children}
+      <div className="pt-4">{children}</div>
       <ScrollToTop />
     </>
   );
