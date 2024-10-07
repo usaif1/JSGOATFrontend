@@ -23,13 +23,13 @@ const CodeEditorComponent: React.FC<Props> = ({ codeblock }) => {
 
   return (
     <div>
-      <h2>Formatted Code:</h2>
       <MonacoEditor
-        height="400px"
+        height="150px"
         language="javascript"
         theme="vs-dark"
         value={formattedCode}
         options={{
+          
           readOnly: true,
           minimap: { enabled: false },
         }}
