@@ -42,6 +42,7 @@ const Text: React.FC<
 > = ({ size = "base", weight = "normal", ...props }) => {
   return (
     <p
+      id="text"
       {...props}
       className={`${TextSizes[size]} ${TextWeights[weight]} text-color-text-primary-light dark:text-color-text-primary-dark`}
     >

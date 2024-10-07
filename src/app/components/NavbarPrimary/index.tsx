@@ -43,7 +43,7 @@ const NavbarPrimary: React.FC = () => {
   }, []);
 
   return (
-    <nav>
+    <nav id="nav_primary">
       {/* Hamburger menu for mobile/tablet only */}
       {isMobile && (
         <div className="w-full bg-color-bg-primary-light dark:bg-color-bg-primary-dark fixed left-0 top-0 z-50 px-4 py-2 border border-white">
@@ -61,7 +61,7 @@ const NavbarPrimary: React.FC = () => {
         direction="left"
         className={`bg-color-bg-secondary-light dark:bg-color-bg-secondary-dark px-4 pt-10`}
       >
-        <ul className="flex flex-col gap-y-4 cursor-pointer">
+        <ul id="drawer_links" className="flex flex-col gap-y-4 cursor-pointer">
           {links.map((link) => {
             return (
               <li key={link.title}>

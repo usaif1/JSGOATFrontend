@@ -45,8 +45,9 @@ const ScrollToTopButton: React.FC = () => {
   }, [handleScroll]);
 
   return (
-    <div>
+    <div id="scroll_to_top_container">
       <button
+        id="scroll_to_top_button"
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 bg-color-highlight-secondary hover:bg-color-highlight-primary text-white p-4 rounded-full shadow-lg transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0 pointer-events-none"

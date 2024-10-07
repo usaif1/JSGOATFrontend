@@ -33,14 +33,18 @@ type Props = {
 const TabNavigation: React.FC<Props> = ({ children, tabs }) => {
   return (
     <>
-      <nav>
-        <ul className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark">
+      <nav id="tabnav">
+        <ul 
+        id="tab_list"
+        className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark">
           {tabs.map((tab) => {
             return <Tab key={tab.title} tabData={tab} />;
           })}
         </ul>
       </nav>
-      <div className="pt-4">{children}</div>
+      <div id="tab_nav_container" className="pt-4">
+        {children}
+      </div>
       <ScrollToTop />
     </>
   );
