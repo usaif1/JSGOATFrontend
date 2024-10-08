@@ -6,48 +6,62 @@
 
 "use client";
 
-import React from "react";
+// dependencies
+import React, { useState } from "react";
 import SyntaxHighlighter from "../SyntaxHighlighter";
+
+// components
 import Divider from "../Divider";
+import QuestionTitle from "./QuestionTitle";
+
+// types
+import { Answer, Question as QuestionType } from "./types";
+import QuestionOption from "./QuestionOption";
+import QuestionExplanation from "./QuestionExplanation";
 
 // Define the type for the component props
 type Props = {
-  question: {
-    _id: string; // Unique identifier for the question
-    order: number; // The order of the question in the list
-    questionNumber: string; // The number associated with the question
-    title: string; // The title or text of the question
-    codeBlock: string; // The code block associated with the question
-    options: string; // Options for the question in JSON format
-    answer: string; // The correct answer to the question
-    explanation: string; // Explanation of the answer
-  };
+  question: QuestionType;
+  disabledQuestions: string[];
 };
 
-const Question: React.FC<Props> = ({ question }) => {
+const Question: React.FC<Props> = ({ question, disabledQuestions }) => {
+  const [selectedAnswer, setSelectedAnswer] = useState<string>("");
+  const [show, setShow] = useState<boolean>(false);
+
   const formattedCode = question?.codeBlock
     .replace(/```(javascript)?/g, "")
     .trim();
 
   return (
-    <div className="w-full p-4 pl-0 border-b border-b-color-border-primary-light">
-      <p className="text-neutral-800 dark:text-neutral-300 font-medium">
-        <span className="text-sm">{question.order}. </span>
-        {question.title}
-      </p>
+    <div className="w-full p-4 pl-0 pb-2 border-b border-b-color-border-primary-light">
+      <QuestionTitle question={question} />
       <Divider />
       <SyntaxHighlighter>{formattedCode}</SyntaxHighlighter>
       <Divider />
-      <div className="">
-        {JSON.parse(question?.options).map((answer) => {
+      <div className="flex flex-col gap-y-3">
+        {JSON.parse(question?.options).map((answer: Answer) => {
           return (
-            <div key={answer?.id} className="text-white flex items-center">
-              <input type="radio" />
-              {answer?.id.replace("-", "")} {answer?.value}
-            </div>
+            <QuestionOption
+              setShow={setShow}
+              disabledQuestions={disabledQuestions}
+              selectedAnswer={selectedAnswer}
+              setSelectedAnswer={setSelectedAnswer}
+              question={question}
+              key={`${answer.id}${answer.value.substring(0, 5)}`}
+              answer={answer}
+            />
           );
         })}
       </div>
+      <Divider />
+      <QuestionExplanation
+        show={show}
+        setShow={setShow}
+        question={question}
+        disabledQuestions={disabledQuestions}
+        setSelectedAnswer={setSelectedAnswer}
+      />
     </div>
   );
 };

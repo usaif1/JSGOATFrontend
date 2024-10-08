@@ -23,6 +23,7 @@ const config: Config = {
         /* highlight colors */
         "color-highlight-primary": "var(--color-highlight-primary)",
         "color-highlight-secondary": "var(--color-highlight-secondary)",
+        "color-highlight-tertiary": "var(--color-highlight-tertiary)",
 
         /* accents  */
         "color-accent-primary": "var(--color-accent-primary)",
@@ -31,6 +32,12 @@ const config: Config = {
         /* borders */
         "color-border-primary-dark": "var(--color-border-primary-dark)",
         "color-border-primary-light": "var(--color-border-primary-light)",
+
+        /* status */
+        "color-status-active": "var(--color-status-active)",
+        "color-status-success": "var(--color-status-success)",
+        "color-status-error": "var(--color-status-error)",
+        "color-status-warn": "var(--color-status-warn)",
       },
     },
   },
