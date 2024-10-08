@@ -4,7 +4,12 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/practice/javascript",
+        destination: "/practice/javascript/mcq",
+        permanent: true,
+      },
+      {
+        source: "/practice/javascript",
+        destination: "/practice/javascript/mcq",
         permanent: true,
       },
     ];
