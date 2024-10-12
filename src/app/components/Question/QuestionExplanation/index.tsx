@@ -9,7 +9,7 @@
 "use client";
 
 // dependencies
-import React, { useState } from "react";
+import React from "react";
 import { IoCaretForward } from "react-icons/io5";
 
 // components

@@ -34,9 +34,10 @@ const TabNavigation: React.FC<Props> = ({ children, tabs }) => {
   return (
     <>
       <nav id="tabnav">
-        <ul 
-        id="tab_list"
-        className="flex items-center gap-x-8 border-b border-color-border-primary-light dark:border-color-border-primary-dark">
+        <ul
+          id="tab_list"
+          className="flex items-center border-b border-color-border-primary-light dark:border-color-border-primary-dark cursor-pointer"
+        >
           {tabs.map((tab) => {
             return <Tab key={tab.title} tabData={tab} />;
           })}

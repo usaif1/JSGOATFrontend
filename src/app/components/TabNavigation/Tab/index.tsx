@@ -33,7 +33,7 @@ const Tab: React.FC<Props> = ({ tabData }) => {
     <Link
       id="tab"
       href={tabData.link}
-      className={`px-3 pt-1 pb-1 ${
+      className={`px-6 pt-1 pb-1 ${
         pathname.includes(tabData.link)
           ? `border-b-2 -mb-0.5 border-b-color-bg-primary-light dark:border-b-color-bg-primary-dark 
           border-x border-x-color-border-primary-light dark:border-x-color-border-primary-dark 
